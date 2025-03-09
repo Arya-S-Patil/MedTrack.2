@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #2c5282;
+    --secondary-color: #f8f9fa;
+    --text-color: #1a202c;
+    --nav-bg: #ffffff;
+    --hover-bg: #edf2f7;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-color: #f7fafc;
+    color: var(--text-color);
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Navbar Styles */
+nav {
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    background: var(--nav-bg);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    border-right: 1px solid #e2e8f0;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    width: 280px;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    padding: 0.5rem;
+}
+
+.logo img {
+    width: 36px;
+    height: 36px;
+}
+
+.logo span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 0.875rem 1rem;
+    margin: 0.25rem 0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    transition: var(--transition);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.navbar a i {
+    font-size: 1.1rem;
+    width: 24px;
+    color: #4a5568;
+}
+
+.navbar a:hover {
+    background: var(--hover-bg);
+    color: var(--primary-color);
+}
+
+.navbar a:hover i {
+    color: var(--primary-color);
+}
+
+.navbar .logout {
+    margin-top: auto;
+    color: #e53e3e;
+}
+
+.navbar .logout:hover {
+    background: #fff5f5;
+    color: #e53e3e;
+}
+
+.navbar .logout:hover i {
+    color: #e53e3e;
+}
+
+/* Main Content Styles */
+.main-body {
+    flex: 1;
+    padding: 2rem 2.5rem;
+    margin-left: 280px;
+}
+
+.header {
+    margin-bottom: 2.5rem;
+}
+
+.header span {
+    color: #4a5568;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.header h1 {
+    font-size: 2.25rem;
+    color: var(--text-color);
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+/* Cards Grid */
+.following-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: var(--transition);
+    border: 1px solid #e2e8f0;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.75rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.card span {
+    color: #4a5568;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.more button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background: none;
+    color: #a0aec0;
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: var(--transition);
+    padding: 0.25rem;
+    border-radius: 4px;
+}
+
+.more button:hover {
+    background: var(--hover-bg);
+    color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        width: 80px;
+        padding: 1rem 0.75rem;
+    }
+
+    .navbar span {
+        display: none;
+    }
+
+    .main-body {
+        margin-left: 80px;
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .navbar a {
+        justify-content: center;
+        padding: 0.875rem;
+    }
+
+    .navbar a i {
+        margin: 0;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.875rem;
+    }
+
+    .following-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .main-body {
+        padding: 1.5rem;
+    }
+}
